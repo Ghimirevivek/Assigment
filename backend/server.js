@@ -3,7 +3,7 @@ const cors = require('cors');
 const axios = require('axios');
 
 const app = express();
-const port = 5000;
+const port = process.env.port || 5000;
 
 // Middleware
 app.use(cors());
@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.post('/api/getTranscript', async (req, res) => {
   const { youtubeUrl } = req.body;
-
+  console.log(youtubeUrl);
   // Validate YouTube URL
   if (!youtubeUrl || !isValidYouTubeUrl(youtubeUrl)) {
     return res.status(400).json({ error: 'Invalid YouTube URL' });

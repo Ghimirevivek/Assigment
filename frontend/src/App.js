@@ -9,7 +9,7 @@ const App = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/getTranscript',
+        'https://youtube-transcrip.onrender.com/api/getTranscript',
         { youtubeUrl }
       );
       setTranscript(response.data.transcript);
